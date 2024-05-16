@@ -11,8 +11,10 @@
 <body>
     <h1>Welcome to the Telegram Web App</h1>
     <button id="sendDataButton">Send Data to Telegram</button>
+    <div id="area"></div>
 
     <script>
+        const elArea = document.getElementById('area');
         // 当页面加载时，初始化 Telegram Web Apps
         window.Telegram.WebApp.ready();
 
@@ -21,7 +23,11 @@
 
         // 处理按钮点击事件，发送数据到 Telegram
         document.getElementById('sendDataButton').addEventListener('click', () => {
-            tg.sendData(JSON.stringify({ message: 'Hello from Web App!' }));
+            try {
+                tg.sendData(JSON.stringify({ message: 'Hello from Web App!' }));
+            } catch (error) {
+                elArea.innerText(JSON.stringify(error));
+            }
         });
 
         // 监听收到的数据
