@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+    <h1>Welcome to the Telegram Web App</h1>
+    <button id="sendDataButton">Send Data to Telegram</button>
+
+    <script>
+        // 当页面加载时，初始化 Telegram Web Apps
+        window.Telegram.WebApp.ready();
+
+        // 获取 Telegram Web Apps 对象
+        const tg = window.Telegram.WebApp;
+
+        // 处理按钮点击事件，发送数据到 Telegram
+        document.getElementById('sendDataButton').addEventListener('click', () => {
+            tg.sendData(JSON.stringify({ message: 'Hello from Web App!' }));
+        });
+
+        // 监听收到的数据
+        tg.onEvent('dataReceived', (data) => {
+            console.log('Received data from Telegram:', data);
+        });
+
+        // 设置按钮颜色
+        tg.MainButton.setText('Main Button').show();
+    </script>
+</body>
+
+</html>
