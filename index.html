@@ -10,8 +10,9 @@
         body {
             background-color: aliceblue;
         }
+
         #area {
-            word-wrap:break-word;
+            word-wrap: break-word;
             word-break: break-all;
         }
     </style>
@@ -24,13 +25,21 @@
 
     <script>
         const elArea = document.getElementById('area');
+        const elSendDataButton = document.getElementById('sendDataButton');
         // 当页面加载时，初始化 Telegram Web Apps
         window.Telegram.WebApp.ready();
 
         // 获取 Telegram Web Apps 对象
         const tg = window.Telegram.WebApp;
 
-        elArea.innerText = JSON.stringify({WebApp:Telegram.WebApp});
+        elSendDataButton.addEventListener('click', () => {
+            tg.sendData(JSON.stringify({ message: 'Hello from Web App!' }));
+        });
+
+        // 监听收到的数据
+        tg.onEvent('dataReceived', (data) => {
+            elArea.innerText = data;
+        });
 
     </script>
 </body>
