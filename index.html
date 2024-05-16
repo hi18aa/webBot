@@ -30,9 +30,9 @@
         document.getElementById('sendDataButton').addEventListener('click', () => {
             try {
                 tg.sendData(JSON.stringify({ message: 'Hello from Web App!' }));
-                elArea.innerText(JSON.stringify(['ok']));
+                elArea.innerText = JSON.stringify(['ok']);
             } catch (error) {
-                elArea.innerText(JSON.stringify(error));
+                elArea.innerText = JSON.stringify(error);
             }
         });
 
