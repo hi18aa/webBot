@@ -2,68 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Telegram Web App</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        body {
-            background-color: aliceblue;
-            padding: 60px 0;
-        }
-
-        #area {
-            word-wrap: break-word;
-            word-break: break-all;
-        }
-        header,menu {
-            position: fixed;
-            box-sizing: border-box;
-            width: 100%;
-            height: 60px;
-            left: 0;
-            margin: 0;
-            padding: 20px;
-            background-color: #fff;
-        }
-        header {
-            top: 0;
-        }
-        menu {
-            bottom: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Telegram Web App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <script type="module" crossorigin src="/assets/index-DDLnqFV9.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-fqR4irkc.css">
 </head>
 
 <body>
-    <header>888</header>
-    <h1>Welcome to the Telegram Web App</h1>
-    <button id="sendDataButton">Send Data to Telegram</button>
-    <div id="area">0</div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <h6>123</h6>
-    <menu>888</menu>
-
-    <script>
-        const elArea = document.getElementById('area');
-        const elSendDataButton = document.getElementById('sendDataButton');
-        // 当页面加载时，初始化 Telegram Web Apps
-        window.Telegram.WebApp.ready();
-
-        // 获取 Telegram Web Apps 对象
-        const tg = window.Telegram.WebApp;
-
-        elSendDataButton.addEventListener('click', () => {
-            tg.sendData(JSON.stringify({ message: 'Hello from Web App!' }));
-        });
-
-        // 监听收到的数据
-        tg.onEvent('dataReceived', (data) => {
-            elArea.innerText = data;
-        });
-
-    </script>
+  <div id="app"></div>
 </body>
 
 </html>
